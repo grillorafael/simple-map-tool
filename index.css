@@ -10,3 +10,10 @@ html, body, #map-canvas {
     left: 10px;
     z-index: 1;
 }
+
+#add-vessel-button {
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+    z-index: 1;
+}
