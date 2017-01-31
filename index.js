@@ -112,11 +112,14 @@ let GeoUtil = {
 function addVesselSubmit(e) {
     e.preventDefault();
     addVesselDialog.close();
+    
+    let antennaCoordinates = document.querySelector('#vessel-coordinates').value.split(',').map(_ => _.trim()).map(parseFloat);
+
     let data = {
-        antennaCoordinates: document.querySelector('#vessel-coordinates').value.split(',').map(_ => _.trim()).map(parseFloat),
+        antennaCoordinates,
         heading: parseFloat(document.querySelector('#vessel-heading').value.trim()),
-        width: parseFloat(document.querySelector('#vessel-width').value.trim()),
-        length: parseFloat(document.querySelector('#vessel-length').value.trim()),
+        width: antennaCoordinates[2] + antennaCoordinates[3],
+        length: antennaCoordinates[0] + antennaCoordinates[1],
         dims: document.querySelector('#vessel-dims').value.split(',').map(_ => _.trim()).map(parseFloat),
     }
 
